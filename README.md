@@ -9,6 +9,12 @@ type User {
         first: String
         last: String
     }
+    profile: {
+        eyeColor: String
+        dateOfBirth: String
+        height: String
+        religion: String
+    }
     roles: [String]
     cinvir: [String]
     properties: [Property]
@@ -25,7 +31,6 @@ type BankAccount {
     type: [String]
     interestRate: Int
     transactions: [Transaction]
-    
 }
 
 type AccessToken {
@@ -38,5 +43,9 @@ type Property {
 
 type Organisation {
 
+}
+
+type CinvirStatus {
+    
 }
 ```
