@@ -13,12 +13,20 @@ type User {
         eyeColor: String
         dateOfBirth: String
         height: String
+        weight: String
         religion: String
+        gender: String
+        place-of-birth: String
+        skinColor: String
+        hairColor: String
+    }
+    addresses: {
+        primary: Address
+        list: [Address]
     }
     roles: [String]
     cinvir: [String]
     properties: [Property]
-    nationalities: [String]
     security: {
         access_tokens: [AccessToken]
     }
