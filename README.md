@@ -5,6 +5,7 @@ type User {
     _id: ObjectID
     username: String
     email: String
+    phone: String
     name: {
         first: String
         last: String
@@ -25,7 +26,10 @@ type User {
         list: [Address]
     }
     roles: [String]
-    cinvir: [String]
+    cinvir: [{
+        type: String
+        date: String
+    }]
     properties: [Property]
     security: {
         access_tokens: [AccessToken]
@@ -35,10 +39,18 @@ type User {
 
 type BankAccount {
     _id: ObjectID
+    name: String
+    settings: {
+        daily-limit: Int
+    }
     owners: [ObjectID]
     type: [String]
     interestRate: Int
     transactions: [Transaction]
+}
+
+type Transaction {
+
 }
 
 type AccessToken {
