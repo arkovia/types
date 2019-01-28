@@ -17,7 +17,7 @@ type User {
         weight: String
         religion: String
         gender: String
-        place-of-birth: String
+        placeOfBirth: String
         skinColor: String
         hairColor: String
     }
@@ -32,7 +32,7 @@ type User {
     }]
     properties: [Property]
     security: {
-        access_tokens: [AccessToken]
+        accessTokens: [AccessToken]
     }
     bankAccounts: [BankAccount]
 }
@@ -41,7 +41,7 @@ type BankAccount {
     _id: ObjectID
     name: String
     settings: {
-        daily-limit: Int
+        dailyLimit: Int
     }
     owners: [ObjectID]
     type: [String]
