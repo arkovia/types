@@ -1,0 +1,110 @@
+type User {
+    _id: ObjectID
+    username: String
+    email: String
+    phone: String
+    profile: UserProfile
+    address: Address
+    roles: [String]
+    cinvir: CinvirStatus
+    properties: [Property]
+    sessions: [Session]
+    health: HealthRecord
+    bankAccounts: [BankAccount]
+}
+
+interface UserProfile{
+    firstName: String
+    lastName: String
+    eyeColor: String
+    dateOfBirth: String
+    height: String
+    weight: String
+    religion: String
+    gender: String
+    placeOfBirth: String
+    skinColor: String
+    hairColor: String
+    ethnicity: [String]
+}
+
+type HealthRecord {
+    status: String
+    records: [HealthDataRecord]
+}
+
+type BankAccount {
+    _id: ObjectID
+    name: String
+    dailyLimit: Int
+    cards: [Card]
+    owners: [ObjectID]
+    type: [String]
+    interestRate: Int
+    transactions: [Transaction]
+}
+
+type Transaction {
+    _id: ObjectID
+    date: Date
+    amount: Int
+    from: BankAccount
+    to: BankAccount
+}
+
+type Session {
+    _id: ObjectID
+    token: String
+    refreshToken: String
+    lastUsed: Int
+    user: User
+    agent: String
+}
+
+type Property {
+
+}
+
+type Address {
+
+}
+
+interface Entity {
+    _id: ObjectID
+}
+
+type Organisation {
+    id: ObjectID,
+    name: String,
+    organisationType: String,
+    employees: [User],
+    addresses: [Address],
+    bankAccounts: [BankAccount],
+    shareHolders: [{
+        owner: Entity
+        shares: [{
+            shareType: String
+            amount: Int
+        }]
+    }]
+    shareStructure: [{
+        a: 1
+    }],
+    shareRecords: [ShareRecord]
+}
+
+type CinvirApplication {
+    
+}
+
+type CinvirRecord {
+    type: String
+}
+
+type CinvirStatus {
+    name: String
+    goals: {
+        payTax: Int
+        dateFinished: Date
+    }
+}
