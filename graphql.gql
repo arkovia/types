@@ -9,11 +9,10 @@ type User {
     cinvir: CinvirStatus
     properties: [Property]
     sessions: [Session]
-    health: HealthRecord
     bankAccounts: [BankAccount]
 }
 
-interface UserProfile{
+interface UserProfile {
     firstName: String
     lastName: String
     eyeColor: String
@@ -26,6 +25,7 @@ interface UserProfile{
     skinColor: String
     hairColor: String
     ethnicity: [String]
+    health: HealthRecord
 }
 
 type HealthRecord {
@@ -107,4 +107,59 @@ type CinvirStatus {
         payTax: Int
         dateFinished: Date
     }
+}
+enum Sex {
+    Male
+    Female
+    Other
+}
+
+type NaturalisationApplication {
+    dateOfBirth: Date
+    otherNames: [String]
+    placeOfBirth: String
+    mobileNumber: String
+    religion: String
+    citizenships: [Citizenship]
+    ethnicity: [String]
+    sex: sex
+    signature: String
+}
+
+type NaturalisationApplicationHard implements NaturalisationApplication {
+    genderChange: Boolean
+    currentOccupation: String
+    currentAddress: String
+    previouslyCitizen: Boolean
+    previousAddresses: [String]
+    qualifications: [Qualification]
+    criminalHistory: [CriminalOffences]
+    hasFamilyInside: Boolean
+    parents: [Parent]
+    children: [Children]
+    siblings: [Sibling]
+    passport: Passport
+    diseases: [String]
+}
+
+type Citizenship {
+    country: String
+    current: Boolean
+    dateAcquired: Date
+    dateEnded: Date
+}
+
+type Signature {
+    name: String
+    address: String
+    state: String
+    registeredVoter: Boolean
+    signature: String
+}
+
+type Post {
+    _id: ObjectID
+    content: String
+    author: User
+    
 }
